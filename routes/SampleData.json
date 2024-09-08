@@ -1,0 +1,28 @@
+{
+    "articles": [
+        {
+            "name": "rehan",
+            "age": 22,
+            "dept": "CE",
+            "id":661
+        },
+        {
+            "name": "rishabh",
+            "age": 24,
+            "dept": "Mechanical",
+            "id":662
+        },
+        {
+            "name": "Satyam",
+            "age": 22,
+            "dept": "CS",
+            "id":663
+        },
+        {
+            "name": "Muhammed",
+            "age": 22,
+            "dept": "IT",
+            "id":664
+        }
+    ]
+}
