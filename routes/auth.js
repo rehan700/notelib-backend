@@ -4,7 +4,7 @@ const User = require('../models/Users')
 const { validationResult, body } = require('express-validator')
 const bcrypt = require('bcrypt')
 var jwt = require('jsonwebtoken')
-const JWT_KEY = 'mysecretkey'
+require('dotenv').config()
 const fetchuser = require('../middleware/fetchuser')
 router.post('/createuser', [
     body('name').isLength({ min: 3 }).withMessage('Name must be atleast 3 characters'),
@@ -38,7 +38,7 @@ router.post('/createuser', [
             }
         }
         success = true
-        const authToken = jwt.sign(data, JWT_KEY)
+        const authToken = jwt.sign(data, process.env.JWT_KEY)
         res.json({ err: 3, message: 'User created successfully', jwtToken: authToken })
     } catch (error) {
         console.error(error.message)
@@ -67,7 +67,7 @@ router.post('/login', [
                 id: user.id
             }
         }
-        const authToken = jwt.sign(data, JWT_KEY)
+        const authToken = jwt.sign(data, process.env.JWT_KEY)
         success=true
         res.json({ success, jwtToken: authToken })
     } catch (error) {
