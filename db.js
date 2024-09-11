@@ -1,10 +1,10 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
-const mongooseURI = 'mongodb://localhost:27017/user_data'
+const mongooseURI = process.env.MONGODB_CONNECTION
 
 const connectToMongo = async () => {
     await mongoose.connect(mongooseURI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
+        
     })
     console.log('connected to mongodb')
 }
