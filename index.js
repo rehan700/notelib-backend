@@ -6,6 +6,10 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 4000
 app.use(express.json())
+
+const cors = require('cors')
+
+app.use(cors({ origin: 'https://notelib-rehan.netlify.app/' }))
 // Your routes and other logic here
 app.get('/', (req, res) => {
     res.send('Hello World!')
